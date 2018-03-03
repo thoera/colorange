@@ -25,26 +25,26 @@ library("colorange")
 orange_colors()
 
 # or just a subset
-orange_colors(c("orange", "rose"))
+orange_colors(c("orange", "pink"))
 
 # use a specific color in ggplot2
 ggplot(mtcars, aes(hp, mpg)) +
-  geom_point(color = orange_colors("vert"), size = 4, alpha = .8) +
+  geom_point(color = orange_colors("green"), size = 4, alpha = .8) +
   theme_minimal()
 
 # interpolate a given palette
-orange_palettes("bleus")(10)
+orange_palettes("blue")(10)
 
 # use a palette in ggplot2 with the scale constructor
 ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
   geom_point(size = 4) +
-  scale_color_orange(palette = "secondaire") +
+  scale_color_orange(palette = "secondary") +
   theme_minimal()
 
 # or the fill constructor
 ggplot(mpg, aes(x = fl, y = displ, fill = fl)) +
   geom_boxplot() +
-  scale_fill_orange(palette = "secondaire", guide = "none") +
+  scale_fill_orange(palette = "secondary", guide = "none") +
   theme_minimal()
 ```
 
@@ -54,7 +54,7 @@ To help you choose a palette, you can display a given palette with the `display_
 
 ```r
 # display one palette
-display_orange_palette("principale")
+display_orange_palette("main")
 ```
 
 ![palette_main.png](/palettes/palette_main.png?raw=true)
