@@ -2,9 +2,9 @@
 
 ## Overview
 
-colorange creates different corportate color palettes for your plots. It adds two functions `scale_color_orange()` and `scale_fill_orange()` that you can use with `ggplot2`.
+colorange creates different corportate color palettes for your plots. It includes two functions `scale_color_orange()` and `scale_fill_orange()` that you can use with `ggplot2`.
 
-Colors and palettes respect the corporate identity and style guide of Orange. See [](https://www.ateliers-orange.fr/index.php?page=marque) for more details.
+Colors and palettes respect the corporate identity and style guide of [Orange™](https://www.orange.com/en/home). See [https://www.ateliers-orange.fr/index.php?page=marque](https://www.ateliers-orange.fr/index.php?page=marque) for more details.
 
 ## Installation
 
@@ -48,12 +48,22 @@ ggplot(mpg, aes(x = fl, y = displ, fill = fl)) +
   theme_minimal()
 ```
 
-To help you choose a palette, you can display a given palette with the `display_orange_palette()` function or view all of them at once with the `display_orange_all()` function.
+## The palettes
+
+To help you choose a palette, you can display a given palette with the `display_orange_palette()` function.
 
 ```r
 # display one palette
 display_orange_palette("principale")
+```
 
-# or all the palettes
+![palette_principale.png](/palettes/palette_principale.png?raw=true)
+
+ You can also view all of them at once with the `display_orange_all()` function.
+
+```r
+# display all the palettes at once
 display_orange_all()
 ```
+
+![palettes_all.png](/palettes/palettes_all.png?raw=true)

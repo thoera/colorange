@@ -1,8 +1,3 @@
-# ----------------------------------------------------
-# Corporate identity and style guide:
-# https://www.ateliers-orange.fr/index.php?page=marque
-# ----------------------------------------------------
-
 #' Extract Orange's colors
 #'
 #' Extract Orange's colors as hexadecimal codes.
