@@ -47,6 +47,7 @@ list_orange_colors <- c(
 #'     )
 #'   ) +
 #'   theme_minimal()
+#' @export
 orange_colors <- function(col = c("gris foncé", "gris moyen", "gris clair",
                                   "orange",
                                   "bleu foncé", "bleu", "bleu clair",
@@ -91,6 +92,7 @@ list_orange_palettes <- list(
 #' orange_palettes("principale")(2)
 #' orange_palettes("secondaire", reverse = TRUE)(6)
 #' orange_palettes("bleus")(10)
+#' @export
 orange_palettes <- function(palette = "principale", reverse = FALSE, ...) {
   if (!palette %in% names(list_orange_palettes)) {
     stop("'palette' should be one of 'principale', 'secondaire', 'gris',
@@ -130,6 +132,7 @@ orange_palettes <- function(palette = "principale", reverse = FALSE, ...) {
 #'   geom_point(size = 4) +
 #'   scale_color_orange(palette = "bleus", discrete = FALSE) +
 #'   theme_minimal()
+#'   @export
 scale_color_orange <- function(palette = "principale", discrete = TRUE,
                                reverse = FALSE, ...) {
   pal <- orange_palettes(palette = palette, reverse = reverse)
@@ -168,6 +171,7 @@ scale_color_orange <- function(palette = "principale", discrete = TRUE,
 #'   scale_fill_orange(palette = "principale", guide = "none") +
 #'   theme_minimal() +
 #'   theme(axis.text.x = element_text(angle = 45, hjust = 1))
+#'   @export
 scale_fill_orange <- function(palette = "principale", discrete = TRUE,
                               reverse = FALSE, ...) {
   pal <- orange_palettes(palette = palette, reverse = reverse)
@@ -193,6 +197,7 @@ scale_fill_orange <- function(palette = "principale", discrete = TRUE,
 #' @examples
 #' display_orange_palette("principale")
 #' display_orange_palette("bleus", n = 10)
+#' @export
 display_orange_palette <- function(palette, n = NULL) {
   if (!palette %in% names(list_orange_palettes)) {
     stop("'palette' should be one of 'principale', 'secondaire', 'gris',
@@ -219,6 +224,7 @@ display_orange_palette <- function(palette, n = NULL) {
 #'   \code{\link{display_orange_palette}}
 #' @examples
 #' display_orange_all()
+#' @export
 display_orange_all <- function() {
   op <- par(no.readonly = TRUE)
   nrow <- ceiling(length(list_orange_palettes) / 2)
