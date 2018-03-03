@@ -132,7 +132,7 @@ orange_palettes <- function(palette = "principale", reverse = FALSE, ...) {
 #'   geom_point(size = 4) +
 #'   scale_color_orange(palette = "bleus", discrete = FALSE) +
 #'   theme_minimal()
-#'   @export
+#' @export
 scale_color_orange <- function(palette = "principale", discrete = TRUE,
                                reverse = FALSE, ...) {
   pal <- orange_palettes(palette = palette, reverse = reverse)
@@ -171,7 +171,7 @@ scale_color_orange <- function(palette = "principale", discrete = TRUE,
 #'   scale_fill_orange(palette = "principale", guide = "none") +
 #'   theme_minimal() +
 #'   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-#'   @export
+#' @export
 scale_fill_orange <- function(palette = "principale", discrete = TRUE,
                               reverse = FALSE, ...) {
   pal <- orange_palettes(palette = palette, reverse = reverse)

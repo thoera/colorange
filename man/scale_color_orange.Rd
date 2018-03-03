@@ -35,7 +35,6 @@ ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Petal.Length)) +
   geom_point(size = 4) +
   scale_color_orange(palette = "bleus", discrete = FALSE) +
   theme_minimal()
-  @export
 }
 \seealso{
 \code{\link{get_orange_cols}}, \code{\link{orange_palettes}},
