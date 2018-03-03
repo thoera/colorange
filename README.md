@@ -57,7 +57,7 @@ To help you choose a palette, you can display a given palette with the `display_
 display_orange_palette("principale")
 ```
 
-![palette_principale.png](/palettes/palette_principale.png?raw=true)
+![palette_main.png](/palettes/palette_main.png?raw=true)
 
  You can also view all of them at once with the `display_orange_all()` function.
 

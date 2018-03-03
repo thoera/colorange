@@ -4,12 +4,11 @@
 \alias{scale_fill_orange}
 \title{Fill scale constructor}
 \usage{
-scale_fill_orange(palette = "principale", discrete = TRUE,
-  reverse = FALSE, ...)
+scale_fill_orange(palette = "main", discrete = TRUE, reverse = FALSE, ...)
 }
 \arguments{
-\item{palette}{Character name of a palette. One of "principale",
-"secondaire", "gris", "bleus", "verts", "roses", "violets" or "jaunes".}
+\item{palette}{Character name of a palette. One of "main",
+"secondary", "grey", "blue", "green", "pink", "purple" or "yellow".}
 
 \item{discrete}{Boolean indicating whether color aesthetic is discrete or
 not.}
@@ -26,18 +25,20 @@ additional arguments to pass to the relevant ggplot2 function (which differs
 for discrete or numeric mapping).
 }
 \examples{
+library("ggplot2")
+
 ggplot(mpg, aes(x = fl, y = displ, fill = fl)) +
   geom_boxplot() +
-  scale_fill_orange(palette = "secondaire", guide = "none") +
+  scale_fill_orange(palette = "secondary", guide = "none") +
   theme_minimal()
 
 ggplot(mpg, aes(x = manufacturer, fill = manufacturer)) +
   geom_bar() +
-  scale_fill_orange(palette = "principale", guide = "none") +
+  scale_fill_orange(palette = "main", guide = "none") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 }
 \seealso{
-\code{\link{get_orange_cols}}, \code{\link{orange_palettes}},
+\code{\link{orange_colors}}, \code{\link{orange_palettes}},
   \code{\link{scale_color_orange}}
 }

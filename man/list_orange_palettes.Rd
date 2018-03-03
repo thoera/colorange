@@ -10,7 +10,7 @@ list_orange_palettes
 }
 \description{
 A collection of color palettes that respect the corporate identity and style
-guide of Orange™. See
+guide of Orange. See
 \url{https://www.ateliers-orange.fr/index.php?page=marque} for more details.
 }
 \keyword{datasets}

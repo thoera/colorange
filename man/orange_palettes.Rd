@@ -4,11 +4,11 @@
 \alias{orange_palettes}
 \title{Interpolate a color palette}
 \usage{
-orange_palettes(palette = "principale", reverse = FALSE, ...)
+orange_palettes(palette = "main", reverse = FALSE, ...)
 }
 \arguments{
-\item{palette}{Character name of a palette. One of "principale",
-"secondaire", "gris", "bleus", "verts", "roses", "violets" or "jaunes".}
+\item{palette}{Character name of a palette. One of "main",
+"secondary", "grey", "blue", "green", "pink", "purple" or "yellow".}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed.}
 
@@ -18,11 +18,11 @@ orange_palettes(palette = "principale", reverse = FALSE, ...)
 Interpolate a color palette.
 }
 \examples{
-orange_palettes("principale")(2)
-orange_palettes("secondaire", reverse = TRUE)(6)
-orange_palettes("bleus")(10)
+orange_palettes("main")(2)
+orange_palettes("secondary", reverse = TRUE)(6)
+orange_palettes("blue")(10)
 }
 \seealso{
-\code{\link{get_orange_cols}}, \code{\link{scale_color_orange}},
+\code{\link{orange_colors}}, \code{\link{scale_color_orange}},
   \code{\link{scale_fill_orange}}
 }

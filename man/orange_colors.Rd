@@ -4,10 +4,10 @@
 \alias{orange_colors}
 \title{Extract Orange's colors}
 \usage{
-orange_colors(col = c("gris foncé", "gris moyen", "gris clair", "orange",
-  "bleu foncé", "bleu", "bleu clair", "vert foncé", "vert", "vert clair",
-  "rose foncé", "rose", "rose clair", "violet foncé", "violet",
-  "violet clair", "jaune foncé", "jaune", "jaune clair"))
+orange_colors(col = c("dark grey", "grey", "light grey", "orange",
+  "dark blue", "blue", "light blue", "dark green", "green", "light green",
+  "dark pink", "pink", "light pink", "dark purple", "purple", "light purple",
+  "dark yellow", "yellow", "light yellow"))
 }
 \arguments{
 \item{col}{Character names of colors.}
@@ -18,18 +18,20 @@ Extract Orange's colors as hexadecimal codes.
 \examples{
 orange_colors()
 orange_colors("orange")
-orange_colors(c("bleu", "vert"))
+orange_colors(c("blue", "green"))
 
 # you can use the colors manually in plots
+library("ggplot2")
+
 ggplot(mtcars, aes(hp, mpg)) +
-  geom_point(color = orange_colors("vert"), size = 4, alpha = .8) +
+  geom_point(color = orange_colors("green"), size = 4, alpha = .8) +
   theme_minimal()
 
 ggplot(mpg, aes(x = cty, y = displ, color = fl)) +
   geom_point(size = 4, alpha = 0.8) +
   scale_color_manual(
     values = unname(
-      orange_colors(c("orange", "bleu", "jaune", "violet", "vert"))
+      orange_colors(c("orange", "blue", "yellow", "purple", "green"))
     )
   ) +
   theme_minimal()

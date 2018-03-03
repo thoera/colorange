@@ -1,25 +1,25 @@
 # Orange's color
 list_orange_colors <- c(
-  `noir` = "#000000",
-  `gris foncé` = "#595959",
-  `gris moyen` = "#8F8F8F",
-  `gris clair` = "#D6D6D6",
+  `black` = "#000000",
+  `dark grey` = "#595959",
+  `grey` = "#8F8F8F",
+  `light grey` = "#D6D6D6",
   `orange` = "#FF7900",
-  `bleu foncé` = "#085EBD",
-  `bleu` = "#4BB4E6",
-  `bleu clair` = "#B5E8F7",
-  `vert foncé` = "#0A6E31",
-  `vert` = "#50BE87",
-  `vert clair` = "#B8EBD6",
-  `rose foncé` = "#FF8AD4",
-  `rose` = "#FFB4E6",
-  `rose clair` = "#FFE8F7",
-  `violet foncé` = "#492191",
-  `violet` = "#A885D8",
-  `violet clair` = "#D9C2F0",
-  `jaune foncé` = "#FFB400",
-  `jaune` = "#FFD200",
-  `jaune clair` = "#FFF6B6"
+  `dark blue` = "#085EBD",
+  `blue` = "#4BB4E6",
+  `light blue` = "#B5E8F7",
+  `dark green` = "#0A6E31",
+  `green` = "#50BE87",
+  `light green` = "#B8EBD6",
+  `dark pink` = "#FF8AD4",
+  `pink` = "#FFB4E6",
+  `light pink` = "#FFE8F7",
+  `dark purple` = "#492191",
+  `purple` = "#A885D8",
+  `light purple` = "#D9C2F0",
+  `dark yellow` = "#FFB400",
+  `yellow` = "#FFD200",
+  `light yellow` = "#FFF6B6"
 )
 
 #' Extract Orange's colors
@@ -32,35 +32,34 @@ list_orange_colors <- c(
 #' @examples
 #' orange_colors()
 #' orange_colors("orange")
-#' orange_colors(c("bleu", "vert"))
+#' orange_colors(c("blue", "green"))
 #'
 #' # you can use the colors manually in plots
+#' library("ggplot2")
+#'
 #' ggplot(mtcars, aes(hp, mpg)) +
-#'   geom_point(color = orange_colors("vert"), size = 4, alpha = .8) +
+#'   geom_point(color = orange_colors("green"), size = 4, alpha = .8) +
 #'   theme_minimal()
 #'
 #' ggplot(mpg, aes(x = cty, y = displ, color = fl)) +
 #'   geom_point(size = 4, alpha = 0.8) +
 #'   scale_color_manual(
 #'     values = unname(
-#'       orange_colors(c("orange", "bleu", "jaune", "violet", "vert"))
+#'       orange_colors(c("orange", "blue", "yellow", "purple", "green"))
 #'     )
 #'   ) +
 #'   theme_minimal()
 #' @export
-orange_colors <- function(col = c("gris foncé", "gris moyen", "gris clair",
+orange_colors <- function(col = c("dark grey", "grey", "light grey",
                                   "orange",
-                                  "bleu foncé", "bleu", "bleu clair",
-                                  "vert foncé", "vert", "vert clair",
-                                  "rose foncé", "rose", "rose clair",
-                                  "violet foncé", "violet", "violet clair",
-                                  "jaune foncé", "jaune", "jaune clair")) {
+                                  "dark blue", "blue", "light blue",
+                                  "dark green", "green", "light green",
+                                  "dark pink", "pink", "light pink",
+                                  "dark purple", "purple", "light purple",
+                                  "dark yellow", "yellow", "light yellow")) {
   if (!all(col %in% names(list_orange_colors))) {
-    stop("'col' should be one of 'gris foncé', 'gris moyen', 'gris clair',
-         'orange', 'bleu foncé', 'bleu', 'bleu clair',
-         'vert foncé', 'vert', 'vert clair', 'rose foncé', 'rose',
-         'rose clair', 'violet foncé', 'violet', 'violet clair',
-         'jaune foncé', 'jaune', 'jaune clair'")
+    stop(paste("'col' should be one of",
+               paste(names(list_orange_colors), collapse = ", ")))
   }
   list_orange_colors[col]
 }
@@ -68,47 +67,47 @@ orange_colors <- function(col = c("gris foncé", "gris moyen", "gris clair",
 #' Orange Color Palettes
 #'
 #' A collection of color palettes that respect the corporate identity and style
-#' guide of Orange™. See
+#' guide of Orange. See
 #' \url{https://www.ateliers-orange.fr/index.php?page=marque} for more details.
 #' @export
 list_orange_palettes <- list(
-  "principale" = orange_colors(c("bleu", "vert", "jaune",
-                                 "orange", "rose", "violet")),
-  "secondaire" = orange_colors(c("bleu", "vert", "jaune", "rose", "violet")),
-  "gris" = orange_colors(c("gris clair", "gris moyen", "gris foncé")),
-  "bleus" = orange_colors(c("bleu clair", "bleu", "bleu foncé")),
-  "verts" = orange_colors(c("vert clair", "vert", "vert foncé")),
-  "roses" = orange_colors(c("rose clair", "rose", "rose foncé")),
-  "violets" = orange_colors(c("violet clair", "violet", "violet foncé")),
-  "jaunes" = orange_colors(c("jaune clair", "jaune", "jaune foncé"))
+  "main" = orange_colors(c("blue", "green", "yellow",
+                           "orange", "pink", "purple")),
+  "secondary" = orange_colors(c("blue", "green", "yellow", "pink", "purple")),
+  "grey" = orange_colors(c("light grey", "grey", "dark grey")),
+  "blue" = orange_colors(c("light blue", "blue", "dark blue")),
+  "green" = orange_colors(c("light green", "green", "dark green")),
+  "pink" = orange_colors(c("light pink", "pink", "dark pink")),
+  "purple" = orange_colors(c("light purple", "purple", "dark purple")),
+  "yellow" = orange_colors(c("light yellow", "yellow", "dark yellow"))
 )
 
 #' Interpolate a color palette
 #'
 #' Interpolate a color palette.
 #'
-#' @param palette Character name of a palette. One of "principale",
-#'   "secondaire", "gris", "bleus", "verts", "roses", "violets" or "jaunes".
+#' @param palette Character name of a palette. One of "main",
+#'   "secondary", "grey", "blue", "green", "pink", "purple" or "yellow".
 #' @param reverse Boolean indicating whether the palette should be reversed.
 #' @param ... Additional arguments to pass to colorRampPalette().
-#' @seealso \code{\link{get_orange_cols}}, \code{\link{scale_color_orange}},
+#' @seealso \code{\link{orange_colors}}, \code{\link{scale_color_orange}},
 #'   \code{\link{scale_fill_orange}}
 #' @examples
-#' orange_palettes("principale")(2)
-#' orange_palettes("secondaire", reverse = TRUE)(6)
-#' orange_palettes("bleus")(10)
+#' orange_palettes("main")(2)
+#' orange_palettes("secondary", reverse = TRUE)(6)
+#' orange_palettes("blue")(10)
 #' @export
-orange_palettes <- function(palette = "principale", reverse = FALSE, ...) {
+orange_palettes <- function(palette = "main", reverse = FALSE, ...) {
   if (!palette %in% names(list_orange_palettes)) {
-    stop("'palette' should be one of 'principale', 'secondaire', 'gris',
-         'bleus', 'verts', 'roses', 'violets' or 'jaunes'")
+    stop("'palette' should be one of 'main', 'secondary', 'grey',
+         'blue', 'green', 'pink', 'purple' or 'yellow'")
   }
 
   pal <- list_orange_palettes[[palette]]
   if (reverse) {
     pal <- rev(pal)
   }
-  colorRampPalette(pal, ...)
+  grDevices::colorRampPalette(pal, ...)
 }
 
 #' Color scale constructor
@@ -118,27 +117,29 @@ orange_palettes <- function(palette = "principale", reverse = FALSE, ...) {
 #' additional arguments to pass to the relevant ggplot2 function (which differs
 #' for discrete or numeric mapping).
 #'
-#' @param palette Character name of a palette. One of "principale",
-#'   "secondaire", "gris", "bleus", "verts", "roses", "violets" or "jaunes".
+#' @param palette Character name of a palette. One of "main",
+#'   "secondary", "grey", "blue", "green", "pink", "purple" or "yellow".
 #' @param discrete Boolean indicating whether color aesthetic is discrete or
 #'   not.
 #' @param reverse Boolean indicating whether the palette should be reversed.
 #' @param ... Additional arguments passed to discrete_scale() or
 #'   scale_color_gradientn(), used respectively when discrete is TRUE or FALSE.
-#' @seealso \code{\link{get_orange_cols}}, \code{\link{orange_palettes}},
+#' @seealso \code{\link{orange_colors}}, \code{\link{orange_palettes}},
 #'   \code{\link{scale_fill_orange}}
 #' @examples
+#' library("ggplot2")
+#'
 #' ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
 #'   geom_point(size = 4) +
-#'   scale_color_orange(palette = "secondaire", discrete = TRUE) +
+#'   scale_color_orange(palette = "secondary", discrete = TRUE) +
 #'   theme_minimal()
 #'
 #' ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Petal.Length)) +
 #'   geom_point(size = 4) +
-#'   scale_color_orange(palette = "bleus", discrete = FALSE) +
+#'   scale_color_orange(palette = "blue", discrete = FALSE) +
 #'   theme_minimal()
 #' @export
-scale_color_orange <- function(palette = "principale", discrete = TRUE,
+scale_color_orange <- function(palette = "main", discrete = TRUE,
                                reverse = FALSE, ...) {
   pal <- orange_palettes(palette = palette, reverse = reverse)
   if (discrete) {
@@ -156,28 +157,30 @@ scale_color_orange <- function(palette = "principale", discrete = TRUE,
 #' additional arguments to pass to the relevant ggplot2 function (which differs
 #' for discrete or numeric mapping).
 #'
-#' @param palette Character name of a palette. One of "principale",
-#'   "secondaire", "gris", "bleus", "verts", "roses", "violets" or "jaunes".
+#' @param palette Character name of a palette. One of "main",
+#'   "secondary", "grey", "blue", "green", "pink", "purple" or "yellow".
 #' @param discrete Boolean indicating whether color aesthetic is discrete or
 #'   not.
 #' @param reverse Boolean indicating whether the palette should be reversed.
 #' @param ... Additional arguments passed to discrete_scale() or
 #'   scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE.
-#' @seealso \code{\link{get_orange_cols}}, \code{\link{orange_palettes}},
+#' @seealso \code{\link{orange_colors}}, \code{\link{orange_palettes}},
 #'   \code{\link{scale_color_orange}}
 #' @examples
+#' library("ggplot2")
+#'
 #' ggplot(mpg, aes(x = fl, y = displ, fill = fl)) +
 #'   geom_boxplot() +
-#'   scale_fill_orange(palette = "secondaire", guide = "none") +
+#'   scale_fill_orange(palette = "secondary", guide = "none") +
 #'   theme_minimal()
 #'
 #' ggplot(mpg, aes(x = manufacturer, fill = manufacturer)) +
 #'   geom_bar() +
-#'   scale_fill_orange(palette = "principale", guide = "none") +
+#'   scale_fill_orange(palette = "main", guide = "none") +
 #'   theme_minimal() +
 #'   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 #' @export
-scale_fill_orange <- function(palette = "principale", discrete = TRUE,
+scale_fill_orange <- function(palette = "main", discrete = TRUE,
                               reverse = FALSE, ...) {
   pal <- orange_palettes(palette = palette, reverse = reverse)
 
@@ -193,20 +196,20 @@ scale_fill_orange <- function(palette = "principale", discrete = TRUE,
 #'
 #' Display a color palette in a graphics window.
 #'
-#' @param palette Character name of a palette. One of "principale",
-#'   "secondaire", "gris", "bleus", "verts", "roses", "violets" or "jaunes".
+#' @param palette Character name of a palette. One of "main",
+#'   "secondary", "grey", "blue", "green", "pink", "purple" or "yellow".
 #' @param n Numeric indicating the number of different colors in the palette. If
 #'   NULL (the default) all the colors of the palette are displayed.
-#' @seealso \code{\link{get_orange_cols}}, \code{\link{orange_palettes}},
+#' @seealso \code{\link{orange_colors}}, \code{\link{orange_palettes}},
 #'   \code{\link{display_orange_all}}
 #' @examples
-#' display_orange_palette("principale")
-#' display_orange_palette("bleus", n = 10)
+#' display_orange_palette("main")
+#' display_orange_palette("blue", n = 10)
 #' @export
 display_orange_palette <- function(palette, n = NULL) {
   if (!palette %in% names(list_orange_palettes)) {
-    stop("'palette' should be one of 'principale', 'secondaire', 'gris',
-         'bleus', 'verts', 'roses', 'violets' or 'jaunes'")
+    stop("'palette' should be one of 'main', 'secondary', 'grey',
+         'blue', 'green', 'pink', 'purple' or 'yellow'")
   }
 
   if (is.null(n)) {
@@ -214,10 +217,10 @@ display_orange_palette <- function(palette, n = NULL) {
   }
 
   pal <- orange_palettes(palette)(n)
-  image(seq_len(n), 1, as.matrix(seq_len(n)), col = pal,
-        xlab = "", ylab = "", xaxt = "n", yaxt = "n", bty = "n",
-        main = paste0("Palette “", palette, "”"))
-  text(seq_len(n), 1, pal, col = "white", srt = 90)
+  graphics::image(seq_len(n), 1, as.matrix(seq_len(n)), col = pal,
+                  xlab = "", ylab = "", xaxt = "n", yaxt = "n", bty = "n",
+                  main = paste0("Palette \u201c", palette, "\u201d"))
+  graphics::text(seq_len(n), 1, pal, col = "white", srt = 90)
 }
 
 #' Display all the available color palettes
@@ -225,19 +228,19 @@ display_orange_palette <- function(palette, n = NULL) {
 #' Display all the available color palettes simultanueously in a graphics
 #' window.
 #'
-#' @seealso \code{\link{get_orange_cols}}, \code{\link{orange_palettes}},
+#' @seealso \code{\link{orange_colors}}, \code{\link{orange_palettes}},
 #'   \code{\link{display_orange_palette}}
 #' @examples
 #' display_orange_all()
 #' @export
 display_orange_all <- function() {
-  op <- par(no.readonly = TRUE)
+  op <- graphics::par(no.readonly = TRUE)
   nrow <- ceiling(length(list_orange_palettes) / 2)
   ncol <- 2
-  par(mfrow = c(nrow, ncol))
+  graphics::par(mfrow = c(nrow, ncol))
   for (i in seq_along(list_orange_palettes)) {
     pal <- names(list_orange_palettes)[[i]]
     display_orange_palette(pal)
   }
-  par(op)
+  graphics::par(op)
 }

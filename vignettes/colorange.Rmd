@@ -41,7 +41,7 @@ display_orange_all()
 If you want to see one particular palette, use the `display_orange_palette()` function.
 
 ```{r, fig.width=7, fig.height=5, fig.align="center"}
-display_orange_palette("principale")
+display_orange_palette("main")
 ```
 
 <br>
@@ -50,7 +50,7 @@ Interpolation is usefull when you need more colors than the number available in 
 For instance, we can interpolate the "bleus" palette which originally includes three colors to a length of 10.
 
 ```{r, fig.width=7, fig.height=5, fig.align="center"}
-display_orange_palette("bleus", n = 10)
+display_orange_palette("blue", n = 10)
 ```
 
 ## Usage
@@ -67,7 +67,7 @@ You can access the hexadecimal code of a color with the `orange_colors()` functi
 library("ggplot2")
 
 ggplot(mtcars, aes(hp, mpg)) +
-  geom_point(color = orange_colors("vert"), size = 4, alpha = .8) +
+  geom_point(color = orange_colors("green"), size = 4, alpha = .8) +
   theme_minimal()
 ```
 
@@ -79,7 +79,7 @@ With `scale_color_orange()`:
 ```{r, fig.width=7, fig.height=5, fig.align="center"}
 ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
   geom_point(size = 4) +
-  scale_color_orange(palette = "secondaire", discrete = TRUE) +
+  scale_color_orange(palette = "secondary", discrete = TRUE) +
   theme_minimal()
 ```
 
@@ -89,6 +89,6 @@ And with `scale_fill_orange()`:
 ```{r, fig.width=7, fig.height=5, fig.align="center"}
 ggplot(mpg, aes(x = fl, y = displ, fill = fl)) +
   geom_boxplot() +
-  scale_fill_orange(palette = "secondaire", guide = "none") +
+  scale_fill_orange(palette = "secondary", guide = "none") +
   theme_minimal()
 ```

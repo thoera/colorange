@@ -14,6 +14,6 @@ window.
 display_orange_all()
 }
 \seealso{
-\code{\link{get_orange_cols}}, \code{\link{orange_palettes}},
+\code{\link{orange_colors}}, \code{\link{orange_palettes}},
   \code{\link{display_orange_palette}}
 }

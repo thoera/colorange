@@ -7,8 +7,8 @@
 display_orange_palette(palette, n = NULL)
 }
 \arguments{
-\item{palette}{Character name of a palette. One of "principale",
-"secondaire", "gris", "bleus", "verts", "roses", "violets" or "jaunes".}
+\item{palette}{Character name of a palette. One of "main",
+"secondary", "grey", "blue", "green", "pink", "purple" or "yellow".}
 
 \item{n}{Numeric indicating the number of different colors in the palette. If
 NULL (the default) all the colors of the palette are displayed.}
@@ -17,10 +17,10 @@ NULL (the default) all the colors of the palette are displayed.}
 Display a color palette in a graphics window.
 }
 \examples{
-display_orange_palette("principale")
-display_orange_palette("bleus", n = 10)
+display_orange_palette("main")
+display_orange_palette("blue", n = 10)
 }
 \seealso{
-\code{\link{get_orange_cols}}, \code{\link{orange_palettes}},
+\code{\link{orange_colors}}, \code{\link{orange_palettes}},
   \code{\link{display_orange_all}}
 }
