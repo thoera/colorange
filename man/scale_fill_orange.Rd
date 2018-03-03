@@ -36,6 +36,7 @@ ggplot(mpg, aes(x = manufacturer, fill = manufacturer)) +
   scale_fill_orange(palette = "principale", guide = "none") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  @export
 }
 \seealso{
 \code{\link{get_orange_cols}}, \code{\link{orange_palettes}},
