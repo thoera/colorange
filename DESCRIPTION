@@ -1,7 +1,7 @@
 Package: colorange
 Title: Corporate color palettes for ggplot2
 Version: 0.0.0.9000
-Authors@R: person("Thomas", "Erard", email = "erard.thomas@gmail.com", role = c("aut", "cre"))
+Authors@R: person("Thomas", "Erard", email = "thomas.erard@orange.com", role = c("aut", "cre"))
 Description: colorange creates different corportate color palettes for your plots. It includes two functions scale_color_orange() and scale_fill_orange() that you can use in ggplot2.
 Depends: R (>= 3.4.3)
 License: MIT + file LICENSE
@@ -9,3 +9,6 @@ Encoding: UTF-8
 LazyData: true
 Imports: ggplot2 (>= 2.2.1)
 RoxygenNote: 6.0.1
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
