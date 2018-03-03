@@ -1,0 +1,94 @@
+---
+title: "Overview"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Overview}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The colorange package creates different corportate color palettes for your plots. It includes two functions `scale_color_orange()` and `scale_fill_orange()` that you can use with the ggplot2 package.
+<br>
+<br>
+Colors and palettes respect the corporate identity and style guide of Orange™. See https://www.ateliers-orange.fr/index.php?page=marque for more details.
+
+```{r, echo=FALSE}
+library("colorange")
+```
+
+## Palette choice
+
+The package contains height palettes.
+
+```{r}
+names(list_orange_palettes)
+```
+
+<br>
+To display all of them at once, you can use the `display_orange_all()` function.
+```{r, fig.width=7, fig.height=7, fig.align="center"}
+display_orange_all()
+```
+
+<br>
+If you want to see one particular palette, use the `display_orange_palette()` function.
+
+```{r, fig.width=7, fig.height=5, fig.align="center"}
+display_orange_palette("principale")
+```
+
+<br>
+Interpolation is usefull when you need more colors than the number available in the palette.
+
+For instance, we can interpolate the "bleus" palette which originally includes three colors to a length of 10.
+
+```{r, fig.width=7, fig.height=5, fig.align="center"}
+display_orange_palette("bleus", n = 10)
+```
+
+## Usage
+
+There are two main ways of using the colors and palettes of the package:
+
+- manually
+- or with the help of the `scale_color_orange()` and `scale_fill_orange()` functions.
+
+If you are going the first route, choose a color and specify it as always in the corresponding layer.
+You can access the hexadecimal code of a color with the `orange_colors()` function.
+
+```{r, fig.width=7, fig.height=5, fig.align="center"}
+library("ggplot2")
+
+ggplot(mtcars, aes(hp, mpg)) +
+  geom_point(color = orange_colors("vert"), size = 4, alpha = .8) +
+  theme_minimal()
+```
+
+<br>
+Using the `scale_color_orange()` and `scale_fill_orange()` functions is as simple.
+
+With `scale_color_orange()`:
+
+```{r, fig.width=7, fig.height=5, fig.align="center"}
+ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
+  geom_point(size = 4) +
+  scale_color_orange(palette = "secondaire", discrete = TRUE) +
+  theme_minimal()
+```
+
+<br>
+And with `scale_fill_orange()`:
+
+```{r, fig.width=7, fig.height=5, fig.align="center"}
+ggplot(mpg, aes(x = fl, y = displ, fill = fl)) +
+  geom_boxplot() +
+  scale_fill_orange(palette = "secondaire", guide = "none") +
+  theme_minimal()
+```

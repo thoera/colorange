@@ -65,7 +65,12 @@ orange_colors <- function(col = c("gris foncé", "gris moyen", "gris clair",
   list_orange_colors[col]
 }
 
-# create different palettes
+#' Orange Color Palettes
+#'
+#' A collection of color palettes that respect the corporate identity and style
+#' guide of Orange™. See
+#' \url{https://www.ateliers-orange.fr/index.php?page=marque} for more details.
+#' @export
 list_orange_palettes <- list(
   "principale" = orange_colors(c("bleu", "vert", "jaune",
                                  "orange", "rose", "violet")),

@@ -2,6 +2,7 @@
 
 export(display_orange_all)
 export(display_orange_palette)
+export(list_orange_palettes)
 export(orange_colors)
 export(orange_palettes)
 export(scale_color_orange)
