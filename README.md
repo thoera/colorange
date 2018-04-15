@@ -6,6 +6,8 @@ colorange creates different corportate color palettes for your plots. It include
 
 Colors and palettes respect the corporate identity and style guide of [Orange™](https://www.orange.com/en/home). See [https://www.ateliers-orange.fr/index.php?page=marque](https://www.ateliers-orange.fr/index.php?page=marque) for more details.
 
+The package also includes a black and white `ggplot2` theme: `theme_elegant()`. 
+
 ## Installation
 
 To install the package, simply run the following from an R console:
