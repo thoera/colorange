@@ -260,6 +260,19 @@ display_orange_all <- function() {
 #' @param axis_size Axis font size.
 #' @param axis_title_position Axis title position. One of `[blmcrt]`.
 #' @param plot_margin Margins of the plot.
+#' @examples
+#' library("ggplot2")
+#'
+#' ggplot(data = iris,
+#'        aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
+#'   geom_point(size = 3, show.legend = FALSE) +
+#'   geom_smooth(se = FALSE, show.legend = FALSE) +
+#'   scale_color_orange(palette = "secondary") +
+#'   facet_wrap(~ Species) +
+#'   labs(title = "The 'infamous' iris dataset",
+#'   subtitle = "Sepal.Length in function of Sepal.Width by Species") +
+#'   theme_elegant()
+#' @export
 theme_elegant <- function(base_family = "",
                           base_size = 14,
                           title_size = 18,

@@ -30,7 +30,7 @@ orange_colors(c("orange", "pink"))
 # use a specific color in ggplot2
 ggplot(mtcars, aes(hp, mpg)) +
   geom_point(color = orange_colors("green"), size = 4, alpha = .8) +
-  theme_minimal()
+  theme_elegant()
 
 # interpolate a given palette
 orange_palettes("blue")(10)
@@ -39,13 +39,13 @@ orange_palettes("blue")(10)
 ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
   geom_point(size = 4) +
   scale_color_orange(palette = "secondary") +
-  theme_minimal()
+  theme_elegant()
 
 # or the fill constructor
 ggplot(mpg, aes(x = fl, y = displ, fill = fl)) +
   geom_boxplot() +
   scale_fill_orange(palette = "secondary", guide = "none") +
-  theme_minimal()
+  theme_elegant()
 ```
 
 ## The palettes

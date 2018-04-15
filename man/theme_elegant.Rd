@@ -31,3 +31,16 @@ theme_elegant(base_family = "", base_size = 14, title_size = 18,
 \description{
 A simple and elegant black and white theme.
 }
+\examples{
+library("ggplot2")
+
+ggplot(data = iris,
+       aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
+  geom_point(size = 3, show.legend = FALSE) +
+  geom_smooth(se = FALSE, show.legend = FALSE) +
+  scale_color_orange(palette = "secondary") +
+  facet_wrap(~ Species) +
+  labs(title = "The 'infamous' iris dataset",
+  subtitle = "Sepal.Length in function of Sepal.Width by Species") +
+  theme_elegant()
+}
