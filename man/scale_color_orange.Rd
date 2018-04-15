@@ -5,7 +5,7 @@
 \title{Color scale constructor}
 \usage{
 scale_color_orange(palette = "main", discrete = TRUE, reverse = FALSE,
-  ...)
+  na_value = "grey50", ...)
 }
 \arguments{
 \item{palette}{Character name of a palette. One of "main",
@@ -15,6 +15,8 @@ scale_color_orange(palette = "main", discrete = TRUE, reverse = FALSE,
 not.}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed.}
+
+\item{na_value}{Character name of a color for NA values.}
 
 \item{...}{Additional arguments passed to discrete_scale() or
 scale_color_gradientn(), used respectively when discrete is TRUE or FALSE.}

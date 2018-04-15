@@ -4,7 +4,8 @@
 \alias{scale_fill_orange}
 \title{Fill scale constructor}
 \usage{
-scale_fill_orange(palette = "main", discrete = TRUE, reverse = FALSE, ...)
+scale_fill_orange(palette = "main", discrete = TRUE, reverse = FALSE,
+  na_value = "grey50", ...)
 }
 \arguments{
 \item{palette}{Character name of a palette. One of "main",
@@ -14,6 +15,8 @@ scale_fill_orange(palette = "main", discrete = TRUE, reverse = FALSE, ...)
 not.}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed.}
+
+\item{na_value}{Character name of a color for NA values.}
 
 \item{...}{Additional arguments passed to discrete_scale() or
 scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE.}

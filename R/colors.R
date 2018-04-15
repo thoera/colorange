@@ -122,6 +122,7 @@ orange_palettes <- function(palette = "main", reverse = FALSE, ...) {
 #' @param discrete Boolean indicating whether color aesthetic is discrete or
 #'   not.
 #' @param reverse Boolean indicating whether the palette should be reversed.
+#' @param na_value Character name of a color for NA values.
 #' @param ... Additional arguments passed to discrete_scale() or
 #'   scale_color_gradientn(), used respectively when discrete is TRUE or FALSE.
 #' @seealso \code{\link{orange_colors}}, \code{\link{orange_palettes}},
@@ -140,11 +141,11 @@ orange_palettes <- function(palette = "main", reverse = FALSE, ...) {
 #'   theme_minimal()
 #' @export
 scale_color_orange <- function(palette = "main", discrete = TRUE,
-                               reverse = FALSE, ...) {
+                               reverse = FALSE, na_value = "grey50", ...) {
   pal <- orange_palettes(palette = palette, reverse = reverse)
   if (discrete) {
     ggplot2::discrete_scale("colour", paste0("orange_", palette),
-                            palette = pal, ...)
+                            palette = pal, na.value = na_value, ...)
   } else {
     ggplot2::scale_color_gradientn(colors = pal(256), ...)
   }
@@ -162,6 +163,7 @@ scale_color_orange <- function(palette = "main", discrete = TRUE,
 #' @param discrete Boolean indicating whether color aesthetic is discrete or
 #'   not.
 #' @param reverse Boolean indicating whether the palette should be reversed.
+#' @param na_value Character name of a color for NA values.
 #' @param ... Additional arguments passed to discrete_scale() or
 #'   scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE.
 #' @seealso \code{\link{orange_colors}}, \code{\link{orange_palettes}},
@@ -181,12 +183,12 @@ scale_color_orange <- function(palette = "main", discrete = TRUE,
 #'   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 #' @export
 scale_fill_orange <- function(palette = "main", discrete = TRUE,
-                              reverse = FALSE, ...) {
+                              reverse = FALSE, na_value = "grey50", ...) {
   pal <- orange_palettes(palette = palette, reverse = reverse)
 
   if (discrete) {
     ggplot2::discrete_scale("fill", paste0("orange_", palette),
-                            palette = pal, ...)
+                            palette = pal, na.value = na_value, ...)
   } else {
     ggplot2::scale_fill_gradientn(colors = pal(256), ...)
   }
@@ -243,4 +245,69 @@ display_orange_all <- function() {
     display_orange_palette(pal)
   }
   graphics::par(op)
+}
+
+#' A simple and elegant black and white theme
+#'
+#' A simple and elegant black and white theme.
+#'
+#' @param base_family Base font family.
+#' @param base_size Base font size.
+#' @param title_size Title font size.
+#' @param subtitle_size Subtitle font size.
+#' @param caption_size Caption font size.
+#' @param facet_text_size Facet font size.
+#' @param axis_size Axis font size.
+#' @param axis_title_position Axis title position. One of `[blmcrt]`.
+#' @param plot_margin Margins of the plot.
+theme_elegant <- function(base_family = "",
+                          base_size = 14,
+                          title_size = 18,
+                          subtitle_size = 14,
+                          caption_size = 11,
+                          facet_text_size = 12,
+                          axis_size = 12,
+                          axis_title_position = "rt",
+                          plot_margin = ggplot2::margin(30, 30, 30, 30)) {
+  bg_color <- "#ffffff"
+  bg_rect <- ggplot2::element_rect(fill = bg_color, color = bg_color)
+
+  xj <- switch(tolower(substr(axis_title_position, 1, 1)),
+               b = 0, l = 0, m = 0.5, c = 0.5, r = 1, t = 1)
+  yj <- switch(tolower(substr(axis_title_position, 2, 2)),
+               b = 0, l = 0, m = 0.5, c = 0.5, r = 1, t = 1)
+
+  ggplot2::theme_minimal(base_family = base_family, base_size = base_size) +
+    ggplot2::theme(
+      plot.title = ggplot2::element_text(size = title_size,
+                                         margin = ggplot2::margin(b = 10),
+                                         face = "bold"),
+      plot.subtitle = ggplot2::element_text(size = subtitle_size,
+                                            margin = ggplot2::margin(b = 20)),
+      plot.caption = ggplot2::element_text(size = caption_size,
+                                           color = "grey20",
+                                           face = "italic",
+                                           margin = ggplot2::margin(t = 15)),
+      axis.title = ggplot2::element_text(size = axis_size),
+      axis.title.x = ggplot2::element_text(hjust = xj),
+      axis.title.y = ggplot2::element_text(hjust = yj),
+      axis.ticks = ggplot2::element_blank(),
+      axis.text.x = ggplot2::element_text(margin = ggplot2::margin(t = 2)),
+      axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 2)),
+      plot.background = bg_rect,
+      plot.margin = plot_margin,
+      panel.background = bg_rect,
+      panel.border = ggplot2::element_blank(),
+      panel.grid.major = ggplot2::element_line(size = 0.25,
+                                               color = "grey80",
+                                               linetype = 2),
+      panel.grid.minor = ggplot2::element_blank(),
+      strip.background = ggplot2::element_blank(),
+      strip.text = ggplot2::element_text(size = facet_text_size,
+                                         hjust = 0),
+      panel.spacing = grid::unit(2, "lines"),
+      legend.background = bg_rect,
+      legend.key.width = grid::unit(1.5, "line"),
+      legend.key = ggplot2::element_blank()
+    )
 }
